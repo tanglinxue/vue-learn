@@ -3,6 +3,7 @@
    <div class="row">
       <div class="col-xs-offset-2 col-xs-8">
         <Banner/>
+        <About/>
       </div>
     </div>
     <div class="row">
@@ -27,10 +28,12 @@
 
 <script>
 import Banner from './components/Banner.vue'
+import About from './pages/About.vue'
 export default {
   name: 'App',
   components:{
-    Banner
+    Banner,
+    About
   }
 }
 </script>

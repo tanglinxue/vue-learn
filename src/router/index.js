@@ -17,17 +17,36 @@ const router =  new VueRouter({
       path:'/about',
       component:About,
       meta:{
-        peiqi:1
+        peiqi:1,
+        title:'唐'
       }
     },
     {
       mame:'ziyu',
       path:'/home',
       component:Home,
+      meta:{
+        title:'你好'
+      },
       children:[
         {
           path:'news',
-          component:News
+          component:News,
+          meta:{
+            peiqi:1
+          }
+          // beforeEnter: (to, from, next) => {
+          //   console.log(to)
+          //   console.log(from)
+          //   console.log(next)
+          //     if(to.meta.peiqi === 1 ){
+          //       if(localStorage.name === 'tang'){
+          //         next()
+          //       }
+          //     }else{
+          //       next()
+          //     }
+          // }
         },
         {
           path:'message',
@@ -56,22 +75,21 @@ const router =  new VueRouter({
   ]
 })
 
-router.beforeEach((to,from,next)=>{
-  // console.log(to)
-  // console.log(from)
-  // console.log(localStorage.name)
-  if(to.meta.peiqi === 1 ){
-    if(localStorage.name === 'tang'){
-      next()
-    }
-  }else{
-    next()
-  }
-})
+// router.beforeEach((to,from,next)=>{
 
-router.afterEach((to,from)=>{
-  console.log(to)
-  console.log(from)
-})
+//   if(to.meta.peiqi === 1 ){
+//     if(localStorage.name === 'tang'){
+//       next()
+//     }
+//   }else{
+//     next()
+//   }
+// })
+
+// router.afterEach((to,from)=>{
+//   console.log(to)
+//   console.log(from)
+//   document.title=to.meta.title || '硅谷'
+// })
 
 export default router
