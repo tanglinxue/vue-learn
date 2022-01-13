@@ -11,6 +11,7 @@ VueRouter.prototype.replace = function replace(location) {
 };
 
 const router =  new VueRouter({
+  mode:'history',
   routes:[
     {
       name:'tanglinxue',
